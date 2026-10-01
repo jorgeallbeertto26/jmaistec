@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J+ Tecnologias | Infraestrutura, Cloud e Cibersegurança</title>
+    <style>
+        /* Variáveis de Cores (Dark Mode e Amarelo J+) */
+        :root {
+            --bg-color: #121212;
+            --section-bg: #1e1e1e;
+            --primary-color: #F2B900;
+            --text-light: #f5f5f5;
+            --text-gray: #b0b0b0;
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Navegação com Logo Tratada --- */
+        header {
+            background-color: #000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            background-color: #080808; /* Fundo preto refinado para a logo */
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            transition: border-color 0.35s ease;
+        }
+
+        .logo-container:hover {
+            border-color: var(--primary-color);
+        }
+
+        .logo-img {
+            max-height: 45px; /* Altura ideal proporcional */
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); /* Melhora a nitidez e profundidade */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: #dca300;
+            transform: scale(1.05);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80') center/cover;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* --- Sobre Nós --- */
+        .sobre {
+            padding: 80px 10%;
+            background-color: var(--section-bg);
+            text-align: center;
+        }
+
+        .sobre h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .sobre p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Serviços --- */
+        .servicos {
+            padding: 80px 10%;
+        }
+
+        .servicos h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .grid-servicos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card-servico {
+            background-color: var(--section-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .card-servico:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-servico h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card-servico p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- Drone Vision Section --- */
+        .drone-vision {
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&q=80') center/cover;
+            padding: 100px 10%;
+            text-align: center;
+            border-top: 2px dashed var(--primary-color);
+            border-bottom: 2px dashed var(--primary-color);
+        }
+
+        .drone-vision h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .drone-vision p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* --- Rodapé --- */
+        footer {
+            background-color: #000;
+            padding: 50px 10% 20px;
+            text-align: center;
+        }
+
+        .parceiros h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .parceiros-logos {
+            color: var(--text-gray);
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+        }
+
+        .contatos {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contatos div {
+            color: var(--text-gray);
+        }
+
+        .contatos strong {
+            color: var(--text-light);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .copy {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Logo com fundo preto dedicado e melhoria visual -->
+        <a href="#" class="logo-container">
+            <img src="imgs/logo.png" alt="J+ Tecnologias Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#drone">Drone Vision</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Fale Conosco</a>
+    </header>
+
+    <section class="hero">
+        <h1>O Alicerce Tecnológico da <span>Sua Empresa</span></h1>
+        <p>Consultoria e soluções avançadas em Infraestrutura, Cloud, Cibersegurança e Monitoramento Inteligente.</p>
+        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Agende uma Visita</a>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <h2>Evolução e Parceria</h2>
+        <p>A J+ Tecnologias evoluiu. Somos uma consultoria especializada em arquitetar o futuro tecnológico do seu negócio. Entregamos suporte de alto nível à infraestrutura, garantindo integridade, confiabilidade e alta disponibilidade para sua operação. Nossa missão vai além da técnica: buscamos firmar parcerias sólidas, conquistar a confiança do mercado e ser o braço direito da sua empresa nos desafios digitais.</p>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <h2>Nossas Especialidades</h2>
+        <div class="grid-servicos">
+            <div class="card-servico">
+                <h3>Infraestrutura & Cloud</h3>
+                <p>Construímos e gerenciamos o alicerce tecnológico do seu negócio. De redes físicas a servidores em nuvem, garantimos alta disponibilidade e backups em tempo real.</p>
+            </div>
+            <div class="card-servico">
+                <h3>Cibersegurança</h3>
+                <p>Protegemos seus ativos digitais contra ameaças com firewalls robustos, auditorias de vulnerabilidade e criptografia. Segurança que não termina na porta do escritório.</p>
+            </div>
+            <div class="card-servico">
+                <h3>Engenharia DevOps</h3>
+                <p>Muito além do Web Design. Desenvolvemos aplicações de alta performance e implementamos automações para entregas rápidas e sistemas que não travam.</p>
+            </div>
+            <div class="card-servico">
+                <h3>Comunicação & CFTV</h3>
+                <p>Reduza custos com Telefonia IP (VOIP) e integre sua equipe. Projetamos sistemas de CFTV de alta definição para monitoramento avançado de riscos físicos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="drone" class="drone-vision">
+        <h2>DRONE VISION J+</h2>
+        <p>Inovação visual e monitoramento tático de alta precisão. Expandimos o conceito de segurança e análise com inspeções aéreas detalhadas para infraestruturas, mapeamento de áreas industriais e segurança perimetral imbatível.</p>
+        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Solicite uma Demonstração</a>
+    </section>
+
+    <footer>
+        <div class="parceiros">
+            <h3>Trabalhamos com as melhores marcas</h3>
+            <div class="parceiros-logos">
+                INTEL &nbsp; | &nbsp; ITAUTEC &nbsp; | &nbsp; HP &nbsp; | &nbsp; TREND MICRO &nbsp; | &nbsp; GIGABYTE
+            </div>
+        </div>
+        <div class="contatos">
+            <div>
+                <strong>Telefones</strong>
+                (22) 97402-7361<br>
+                (22) 98849-2137
+            </div>
+            <div>
+                <strong>E-mail</strong>
+                jorge@jmaistec.com.br
+            </div>
+            <div>
+                <strong>Web</strong>
+                www.jmaistec.com.br
+            </div>
+        </div>
+        <div class="copy">
+            &copy; 2026 J+ Tecnologias. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
