@@ -28,10 +28,10 @@
             line-height: 1.6;
         }
 
-        /* --- Header & Navegação com Logo Destacada --- */
+        /* --- Header & Navegação com Logo Bem Visível --- */
         header {
             background-color: #000;
-            padding: 10px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,28 +45,30 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            overflow: hidden; /* Esconde excessos laterais da imagem */
+            background-color: #000;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid var(--primary-color);
         }
 
         .logo-img {
-            max-height: 75px; /* Logo bem maior e destacada */
+            height: 65px; /* Altura generosa para destacar bem a logo */
             width: auto;
             display: block;
             object-fit: contain;
-            margin: -10px -15px; /* Puxa a logo para eliminar espaços vazios do arquivo */
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         nav ul li a {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.05rem;
             transition: color 0.3s;
         }
 
@@ -77,7 +79,7 @@
         .btn-cta {
             background-color: var(--primary-color);
             color: #000;
-            padding: 10px 25px;
+            padding: 12px 28px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
