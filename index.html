@@ -28,10 +28,10 @@
             line-height: 1.6;
         }
 
-        /* --- Header & Navegação com Logo Bem Visível --- */
+        /* --- Header & Navegação com Logo Grande e Sem Borda --- */
         header {
             background-color: #000;
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,14 +45,13 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            background-color: #000;
-            padding: 4px 8px;
-            border-radius: 6px;
-            border: 1px solid var(--primary-color);
+            background: transparent; /* Remove qualquer fundo */
+            border: none; /* Remove a borda amarela */
+            padding: 0;
         }
 
         .logo-img {
-            height: 65px; /* Altura generosa para destacar bem a logo */
+            height: 75px; /* Logo bem maior e imponente */
             width: auto;
             display: block;
             object-fit: contain;
@@ -237,20 +236,19 @@
 </head>
 <body>
 
-  <header>
-    <a href="#" class="logo-container">
-        <!-- Alterado de imgs/ para img/ para corresponder exatamente à pasta do GitHub -->
-        <img src="img/logo.png" alt="J+ Tecnologias Logo" class="logo-img">
-    </a>
-    <nav>
-        <ul>
-            <li><a href="#sobre">Sobre Nós</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#drone">Drone Vision</a></li>
-        </ul>
-    </nav>
-    <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Fale Conosco</a>
-</header>
+    <header>
+        <a href="#" class="logo-container">
+            <img src="img/logo.png" alt="J+ Tecnologias Logo" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Nós</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#drone">Drone Vision</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Fale Conosco</a>
+    </header>
 
     <section class="hero">
         <h1>O Alicerce Tecnológico da <span>Sua Empresa</span></h1>
