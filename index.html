@@ -28,10 +28,10 @@
             line-height: 1.6;
         }
 
-        /* --- Header & Navegação com Logo Otimizada --- */
+        /* --- Header & Navegação com Logo Destacada --- */
         header {
             background-color: #000;
-            padding: 12px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,23 +45,16 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            padding: 2px 6px;
-            background-color: #050505;
-            border-radius: 6px;
-            border: 1px solid #222;
-            transition: border-color 0.3s ease;
-        }
-
-        .logo-container:hover {
-            border-color: var(--primary-color);
+            overflow: hidden; /* Esconde excessos laterais da imagem */
         }
 
         .logo-img {
-            max-height: 55px; /* Altura aumentada para melhor visualização */
+            max-height: 75px; /* Logo bem maior e destacada */
             width: auto;
             display: block;
             object-fit: contain;
-            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
+            margin: -10px -15px; /* Puxa a logo para eliminar espaços vazios do arquivo */
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.9));
         }
 
         nav ul {
