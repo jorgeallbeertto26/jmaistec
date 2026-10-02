@@ -28,10 +28,10 @@
             line-height: 1.6;
         }
 
-        /* --- Header & Navegação com Logo Tratada --- */
+        /* --- Header & Navegação com Logo Otimizada --- */
         header {
             background-color: #000;
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,11 +44,12 @@
         .logo-container {
             display: flex;
             align-items: center;
-            background-color: #080808; /* Fundo preto refinado para a logo */
-            padding: 6px 12px;
+            text-decoration: none;
+            padding: 2px 6px;
+            background-color: #050505;
             border-radius: 6px;
-            border: 1px solid #333;
-            transition: border-color 0.35s ease;
+            border: 1px solid #222;
+            transition: border-color 0.3s ease;
         }
 
         .logo-container:hover {
@@ -56,10 +57,11 @@
         }
 
         .logo-img {
-            max-height: 45px; /* Altura ideal proporcional */
+            max-height: 55px; /* Altura aumentada para melhor visualização */
             width: auto;
             display: block;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); /* Melhora a nitidez e profundidade */
+            object-fit: contain;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
         }
 
         nav ul {
@@ -208,20 +210,8 @@
         /* --- Rodapé --- */
         footer {
             background-color: #000;
-            padding: 50px 10% 20px;
+            padding: 50px 10% 25px;
             text-align: center;
-        }
-
-        .parceiros h3 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .parceiros-logos {
-            color: var(--text-gray);
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
         }
 
         .contatos {
@@ -243,7 +233,7 @@
         }
 
         .copy {
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
             padding-top: 20px;
             color: #777;
             font-size: 0.9rem;
@@ -253,7 +243,6 @@
 <body>
 
     <header>
-        <!-- Logo com fundo preto dedicado e melhoria visual -->
         <a href="#" class="logo-container">
             <img src="imgs/logo.png" alt="J+ Tecnologias Logo" class="logo-img">
         </a>
@@ -307,12 +296,6 @@
     </section>
 
     <footer>
-        <div class="parceiros">
-            <h3>Trabalhamos com as melhores marcas</h3>
-            <div class="parceiros-logos">
-                INTEL &nbsp; | &nbsp; ITAUTEC &nbsp; | &nbsp; HP &nbsp; | &nbsp; TREND MICRO &nbsp; | &nbsp; GIGABYTE
-            </div>
-        </div>
         <div class="contatos">
             <div>
                 <strong>Telefones</strong>
