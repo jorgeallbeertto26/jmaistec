@@ -1,199 +1,295 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J+ Tecnologias | Infraestrutura, Cloud & Engenharia de Software</title>
+    <title>J+ Tecnologias | Infraestrutura, Cloud & Cibersegurança</title>
     <style>
         :root {
-            --bg-deep: #050811;
-            --bg-surface: #0b1120;
-            --bg-card: #111c30;
-            --accent-cyan: #38bdf8;
-            --accent-blue: #2563eb;
+            --bg-color: #0b1120;
+            --card-bg: #111c30;
+            --accent-color: #38bdf8;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --border-color: #1e293b;
-            --glow-color: rgba(56, 189, 248, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-deep);
+            background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.7;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
-        header {
-            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-deep) 100%);
-            border-bottom: 1px solid var(--border-color);
-            padding: 6rem 1.5rem 4rem 1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 250px;
-            background: radial-gradient(circle, var(--glow-color) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: 0;
-        }
-
-        .header-content {
-            max-width: 900px;
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            padding: 1.5rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 1rem 3rem 1rem;
+            text-align: center;
         }
 
         header h1 {
-            font-size: 3rem;
-            font-weight: 800;
+            font-size: 2.75rem;
             color: #ffffff;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.03em;
-            background: linear-gradient(to right, #ffffff, var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
         }
 
         header p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto;
-            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
         }
 
-        /* Main Container */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #0b1120;
+            padding: 0.75rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Section: Sobre */
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-section p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Services Grid */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 5rem 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            padding: 2rem 1rem 4rem 1rem;
         }
 
-        /* Service Cards */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
         .service-card {
-            background-color: var(--bg-card);
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .service-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-cyan);
-            box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.2);
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
         }
 
-        .card-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card h2 {
-            font-size: 1.5rem;
+        .service-card h3 {
+            font-size: 1.35rem;
             color: #ffffff;
             margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
         }
 
         .service-card p {
             color: var(--text-muted);
-            font-size: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
-        /* Footer */
+        /* Footer / Contact */
         footer {
-            background-color: var(--bg-surface);
+            background-color: #070a14;
             border-top: 1px solid var(--border-color);
+            padding: 4rem 1rem 2rem 1rem;
             text-align: center;
-            padding: 3rem 1.5rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            font-size: 1.75rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+        }
+
+        .contact-info div strong {
+            display: block;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
         @media (max-width: 768px) {
-            header {
-                padding: 4rem 1rem 3rem 1rem;
+            nav ul {
+                display: none;
             }
             header h1 {
                 font-size: 2.25rem;
-            }
-            header p {
-                font-size: 1.1rem;
-            }
-            main {
-                padding: 3rem 1rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#" class="logo">J+ Tecnologias</a>
+        <ul>
+            <li><a href="#sobre">Sobre Nós</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#drone">Drone Vision</a></li>
+            <li><a href="#contato">Fale Conosco</a></li>
+        </ul>
+    </nav>
+
     <header>
-        <div class="header-content">
-            <h1>J+ Tecnologias</h1>
-            <p>Engenharia de sistemas avançada, infraestrutura crítica de missão e desenvolvimento de software de alta performance para impulsionar ecossistemas corporativos.</p>
-        </div>
+        <h1>O Alicerce Tecnológico da Sua Empresa</h1>
+        <p>Consultoria e soluções avançadas em Infraestrutura, Cloud, Cibersegurança e Monitoramento Inteligente.</p>
+        <a href="#contato" class="btn">Agende uma Visita</a>
     </header>
 
-    <main>
-        <section class="service-card">
-            <div class="card-tag">Infraestrutura & Cloud</div>
-            <h2>Arquitetura de Alta Disponibilidade</h2>
-            <p>Construímos e gerenciamos o alicerce tecnológico definitivo para o seu negócio operar sem interrupções. Da engenharia de redes físicas corporativas à orquestração de servidores em nuvem (AWS, OCI, Azure e Proxmox), garantimos redundância rigorosa e disaster recovery em tempo real.</p>
-        </section>
+    <section id="sobre" class="about-section">
+        <h2>Evolução e Parceria</h2>
+        <p>A J+ Tecnologias evoluiu. Somos uma consultoria especializada em arquitetar o futuro tecnológico do seu negócio. Entregamos suporte de alto nível à infraestrutura, garantindo integridade, confiabilidade e alta disponibilidade para sua operação. Nossa missão vai além da técnica: buscamos firmar parcerias sólidas, conquistar a confiança do mercado e ser o braço direito da sua empresa nos desafios digitais.</p>
+    </section>
 
-        <section class="service-card">
-            <div class="card-tag">Cibersegurança</div>
-            <h2>Blindagem Ofensiva e Defensiva</h2>
-            <p>Proteção de ponta a ponta contra ameaças digitais complexas. Implementamos barreiras impenetráveis com firewalls de última geração, segmentação avançada de rede, monitoramento preditivo e criptografia de dados de nível corporativo para assegurar conformidade total.</p>
-        </section>
+    <main id="servicos">
+        <h2 class="section-title">Nossas Especialidades</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Infraestrutura & Cloud</h3>
+                <p>Construímos e gerenciamos o alicerce tecnológico do seu negócio. De redes físicas a servidores em nuvem, garantimos alta disponibilidade e backups em tempo real.</p>
+            </div>
 
-        <section class="service-card">
-            <div class="card-tag">DevOps & Automação</div>
-            <h2>Engenharia de Sistemas Resilientes</h2>
-            <p>Muito além da operação tradicional. Estruturamos pipelines de integração contínua (CI/CD), conteinerização com Docker e automações inteligentes via Python e n8n. Eliminamos gargalos operacionais e garantimos sistemas capazes de suportar picos extremos de tráfego.</p>
-        </section>
+            <div class="service-card">
+                <h3>Cibersegurança</h3>
+                <p>Protegemos seus ativos digitais contra ameaças com firewalls robustos, auditorias de vulnerabilidade e criptografia. Segurança que não termina na porta do escritório.</p>
+            </div>
 
-        <section class="service-card">
-            <div class="card-tag">Software Engineering</div>
-            <h2>De Landing Pages a Aplicações</h2>
-            <p>Transformamos demandas complexas em software de excelência. Projetamos desde landing pages de alta conversão e hotsites corporativos otimizados para SEO até aplicações web robustas, portais transacionais e sistemas sob medida com foco absoluto em performance.</p>
-        </section>
+            <div class="service-card">
+                <h3>Engenharia DevOps</h3>
+                <p>Muito além do Web Design. Desenvolvemos aplicações de alta performance e implementamos automações para entregas rápidas e sistemas que não travam.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Comunicação & CFTV</h3>
+                <p>Reduza custos com Telefonia IP (VOIP) e integre sua equipe. Projetamos sistemas de CFTV de alta definição para monitoramento avançado de riscos físicos.</p>
+            </div>
+
+            <div class="service-card" id="drone">
+                <h3>DRONE VISION J+</h3>
+                <p>Inovação visual e monitoramento tático de alta precisão. Expandimos o conceito de segurança e análise com inspeções aéreas detalhadas para infraestruturas, mapeamento de áreas industriais e segurança perimetral imbatível.</p>
+            </div>
+        </div>
     </main>
 
-    <footer>
-        &copy; 2026 J+ Tecnologias. Todos os direitos reservados.
+    <footer id="contato">
+        <div class="footer-content">
+            <h3>Solicite uma Demonstração</h3>
+            <div class="contact-info">
+                <div>
+                    <strong>Telefones</strong>
+                    (21) 98854-5380
+                </div>
+                <div>
+                    <strong>E-mail</strong>
+                    jorge@jmaistec.com.br
+                </div>
+                <div>
+                    <strong>Web</strong>
+                    www.jmaistec.com.br
+                </div>
+            </div>
+            <a href="mailto:jorge@jmaistec.com.br" class="btn">Entre em Contato</a>
+            <div class="copyright">
+                &copy; 2026 J+ Tecnologias. Todos os direitos reservados.
+            </div>
+        </div>
     </footer>
 
 </body>
