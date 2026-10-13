@@ -3,101 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J+ Tecnologias | Infraestrutura, Cloud & Engenharia DevOps</title>
+    <title>J+ Tecnologias | Infraestrutura, Cloud & Engenharia de Software</title>
     <style>
         :root {
-            --bg-color: #0a0f1d;
-            --card-bg: #111827;
-            --accent-color: #38bdf8;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border-color: #1f2937;
+            --bg-deep: #050811;
+            --bg-surface: #0b1120;
+            --bg-card: #111c30;
+            --accent-cyan: #38bdf8;
+            --accent-blue: #2563eb;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #1e293b;
+            --glow-color: rgba(56, 189, 248, 0.15);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-deep);
             color: var(--text-main);
-            line-height: 1.6;
-            padding: 0 1rem;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
+        /* Hero Section */
         header {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 0 2rem 0;
+            background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-deep) 100%);
+            border-bottom: 1px solid var(--border-color);
+            padding: 6rem 1.5rem 4rem 1.5rem;
             text-align: center;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 250px;
+            background: radial-gradient(circle, var(--glow-color) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 800;
             color: #ffffff;
-            margin-bottom: 1rem;
-            letter-spacing: -0.025em;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(to right, #ffffff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
+            font-weight: 400;
         }
 
+        /* Main Container */
         main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem 0 4rem 0;
+            padding: 5rem 1.5rem;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
+        /* Service Cards */
         .service-card {
-            background-color: var(--card-bg);
+            background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .service-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-color);
+            transform: translateY(-6px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 30px -10px rgba(56, 189, 248, 0.2);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
 
         .service-card h2 {
-            font-size: 1.35rem;
+            font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .service-card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
+        /* Footer */
         footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            background-color: var(--bg-surface);
             border-top: 1px solid var(--border-color);
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
+            header {
+                padding: 4rem 1rem 3rem 1rem;
+            }
             header h1 {
-                font-size: 2rem;
+                font-size: 2.25rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            main {
+                padding: 3rem 1rem;
             }
         }
     </style>
@@ -105,29 +160,35 @@
 <body>
 
     <header>
-        <h1>J+ Tecnologias</h1>
-        <p>Engenharia de sistemas, infraestrutura crítica e desenvolvimento de software de alta performance para impulsionar ecossistemas corporativos.</p>
+        <div class="header-content">
+            <h1>J+ Tecnologias</h1>
+            <p>Engenharia de sistemas avançada, infraestrutura crítica de missão e desenvolvimento de software de alta performance para impulsionar ecossistemas corporativos.</p>
+        </div>
     </header>
 
     <main>
         <section class="service-card">
-            <h2>Infraestrutura & Cloud</h2>
-            <p>Construímos e gerenciamos o alicerce tecnológico definitivo para o seu negócio operar sem interrupções. Da engenharia de redes físicas corporativas à orquestração de servidores em nuvem de alta performance (AWS, OCI, Azure e Proxmox), garantimos redundância rigorosa, latência mínima e políticas de disaster recovery com backups automatizados em tempo real.</p>
+            <div class="card-tag">Infraestrutura & Cloud</div>
+            <h2>Arquitetura de Alta Disponibilidade</h2>
+            <p>Construímos e gerenciamos o alicerce tecnológico definitivo para o seu negócio operar sem interrupções. Da engenharia de redes físicas corporativas à orquestração de servidores em nuvem (AWS, OCI, Azure e Proxmox), garantimos redundância rigorosa e disaster recovery em tempo real.</p>
         </section>
 
         <section class="service-card">
-            <h2>Cibersegurança Corporativa</h2>
-            <p>Proteção de ponta a ponta contra o cenário crescente de ameaças digitais. Implementamos barreiras impenetráveis utilizando firewalls de última geração, segmentação avançada de rede, monitoramento de eventos em tempo real (SIEM) e criptografia de dados de nível militar. Blindamos o seu ecossistema para assegurar conformidade e sigilo absoluto.</p>
+            <div class="card-tag">Cibersegurança</div>
+            <h2>Blindagem Ofensiva e Defensiva</h2>
+            <p>Proteção de ponta a ponta contra ameaças digitais complexas. Implementamos barreiras impenetráveis com firewalls de última geração, segmentação avançada de rede, monitoramento preditivo e criptografia de dados de nível corporativo para assegurar conformidade total.</p>
         </section>
 
         <section class="service-card">
-            <h2>Engenharia DevOps</h2>
-            <p>Muito além da operação tradicional. Estruturamos pipelines de integração e entrega contínua (CI/CD), conteinerização com Docker e automações inteligentes via Python e n8n. Eliminamos gargalos operacionais, garantimos deploys ágeis, monitoramento preditivo e entregamos sistemas resilientes que suportam picos extremos de tráfego sem travar.</p>
+            <div class="card-tag">DevOps & Automação</div>
+            <h2>Engenharia de Sistemas Resilientes</h2>
+            <p>Muito além da operação tradicional. Estruturamos pipelines de integração contínua (CI/CD), conteinerização com Docker e automações inteligentes via Python e n8n. Eliminamos gargalos operacionais e garantimos sistemas capazes de suportar picos extremos de tráfego.</p>
         </section>
 
         <section class="service-card">
-            <h2>Desenvolvimento de Software</h2>
-            <p>Transformamos demandas complexas em software de excelência. Projetamos e desenvolvemos desde landing pages de alta conversão e hotsites corporativos otimizados para SEO até aplicações web completas, portais transacionais e sistemas sob medida, combinando arquitetura moderna, código limpo e foco absoluto na performance.</p>
+            <div class="card-tag">Software Engineering</div>
+            <h2>De Landing Pages a Aplicações</h2>
+            <p>Transformamos demandas complexas em software de excelência. Projetamos desde landing pages de alta conversão e hotsites corporativos otimizados para SEO até aplicações web robustas, portais transacionais e sistemas sob medida com foco absoluto em performance.</p>
         </section>
     </main>
 
