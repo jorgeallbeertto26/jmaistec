@@ -1,315 +1,276 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J+ Tecnologias | Infraestrutura, Cloud e Cibersegurança</title>
-    <style>
-        /* Variáveis de Cores (Dark Mode e Amarelo J+) */
-        :root {
-            --bg-color: #121212;
-            --section-bg: #1e1e1e;
-            --primary-color: #F2B900;
-            --text-light: #f5f5f5;
-            --text-gray: #b0b0b0;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* --- Header & Navegação com Logo Grande e Sem Borda --- */
-        header {
-            background-color: #000;
-            padding: 10px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--primary-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            background: transparent; /* Remove qualquer fundo */
-            border: none; /* Remove a borda amarela */
-            padding: 0;
-        }
-
-        .logo-img {
-            height: 75px; /* Logo bem maior e imponente */
-            width: auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .btn-cta {
-            background-color: var(--primary-color);
-            color: #000;
-            padding: 12px 28px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn-cta:hover {
-            background-color: #dca300;
-            transform: scale(1.05);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80') center/cover;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        /* --- Sobre Nós --- */
-        .sobre {
-            padding: 80px 10%;
-            background-color: var(--section-bg);
-            text-align: center;
-        }
-
-        .sobre h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .sobre p {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* --- Serviços --- */
-        .servicos {
-            padding: 80px 10%;
-        }
-
-        .servicos h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-        }
-
-        .grid-servicos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .card-servico {
-            background-color: var(--section-bg);
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s;
-        }
-
-        .card-servico:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-servico h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .card-servico p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-        }
-
-        /* --- Drone Vision Section --- */
-        .drone-vision {
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&q=80') center/cover;
-            padding: 100px 10%;
-            text-align: center;
-            border-top: 2px dashed var(--primary-color);
-            border-bottom: 2px dashed var(--primary-color);
-        }
-
-        .drone-vision h2 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .drone-vision p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* --- Rodapé --- */
-        footer {
-            background-color: #000;
-            padding: 50px 10% 25px;
-            text-align: center;
-        }
-
-        .contatos {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-
-        .contatos div {
-            color: var(--text-gray);
-        }
-
-        .contatos strong {
-            color: var(--text-light);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .copy {
-            border-top: 1px solid #222;
-            padding-top: 20px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J+ TEC Tecnologia | Infraestrutura de TI, Cibersegurança e Desenvolvimento Web</title>
+  <meta name="description" content="Infraestrutura de TI, cibersegurança e desenvolvimento web para empresas que buscam mais segurança, eficiência e presença digital. Solicite um orçamento à J+ TEC Tecnologia.">
+  <meta name="theme-color" content="#0b1b33">
+  <link rel="canonical" href="https://jmaistec.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="J+ TEC Tecnologia">
+  <meta property="og:title" content="J+ TEC Tecnologia — Infraestrutura, segurança e soluções digitais">
+  <meta property="og:description" content="Tecnologia confiável para proteger, conectar e impulsionar seu negócio.">
+  <meta property="og:url" content="https://jmaistec.com.br/">
+  <meta property="og:image" content="https://jmaistec.com.br/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo da J+ TEC Tecnologia">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/poppins-700.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"J+ TEC Tecnologia","url":"https://jmaistec.com.br/","logo":"https://jmaistec.com.br/assets/logo-jmais.svg","email":"jorge@jmaistec.com.br","telephone":"+55 22 97402-7361"}
+  </script>
 </head>
 <body>
+  <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="i-infra" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01M11 7h6M11 17h6"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.7-8 9-4.8-1.3-8-4.5-8-9V6l8-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></g></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9.5 10l-2.5 2 2.5 2M14.5 10l2.5 2-2.5 2"/></g></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path fill="currentColor" d="M9.2 8.2c-.3.5-.3 1.3.2 2.3a9.8 9.8 0 0 0 4.1 3.9c1 .5 1.8.5 2.3.2l.7-.7c.3-.3.3-.7 0-1l-1.2-.9a.8.8 0 0 0-1 0l-.4.4c-.9-.4-1.8-1.3-2.2-2.2l.4-.4a.8.8 0 0 0 0-1l-.9-1.2c-.3-.3-.7-.3-1 0z"/></symbol>
+  </svg>
 
-    <header>
-        <a href="#" class="logo-container">
-            <img src="img/logon.png" alt="J+ Tecnologias Logo" class="logo-img">
-        </a>
-        <nav>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header on-dark">
+    <div class="wrap site-header__bar">
+      <a class="brand" href="#inicio" aria-label="J+ TEC Tecnologia — início"><img src="assets/logo-jmais.svg" width="226" height="40" alt="J+ TEC Tecnologia"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-toggle__bars" aria-hidden="true"></span><span>Menu</span></button>
+      <nav class="nav" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a class="btn btn--primary" href="#contato">Solicitar orçamento</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero on-dark" id="inicio" aria-labelledby="hero-titulo">
+      <div class="wrap hero__grid">
+        <div>
+          <h1 id="hero-titulo">Tecnologia confiável para proteger, conectar e impulsionar seu negócio.</h1>
+          <p class="hero__text">Infraestrutura de TI, cibersegurança e desenvolvimento web para empresas que buscam mais segurança, eficiência e presença digital.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#servicos">Conheça nossas soluções</a>
+            <a class="btn btn--ghost" href="#contato">Fale com um especialista</a>
+          </div>
+        </div>
+        <svg class="hero__art" viewBox="0 0 400 360" role="img" aria-label="Diagrama: J+ TEC conectando infraestrutura, cibersegurança e desenvolvimento web">
+          <circle class="ring" cx="200" cy="180" r="70"/><circle class="ring" cx="200" cy="180" r="140"/>
+          <path class="link" d="M200 180L200 50M200 180L88 245M200 180L312 245"/>
+          <circle class="node" cx="200" cy="50" r="30"/><circle class="node" cx="88" cy="245" r="30"/><circle class="node" cx="312" cy="245" r="30"/>
+          <circle class="core" cx="200" cy="180" r="42"/>
+          <text class="core-label" x="200" y="187">J+</text>
+          <g fill="none" stroke="#7db2ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M200 38l11 4v8c0 6-4.5 10-11 12-6.500-2-11-6-11-12v-8l11-4z"/><rect x="74" y="233" width="28" height="9" rx="2"/><rect x="74" y="246" width="28" height="9" rx="2"/><path d="M299 240l-7 5 7 5M325 240l7 5-7 5"/></g>
+          <text x="200" y="104">Cibersegurança</text><text x="88" y="297">Infraestrutura de TI</text><text x="312" y="297">Desenvolvimento Web</text>
+          <circle class="gold" cx="200" cy="140" r="3"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="servicos" aria-labelledby="serv-titulo">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="eyebrow">Serviços</span>
+          <h2 id="serv-titulo">Soluções de tecnologia para o seu negócio.</h2>
+          <p class="lead">Três áreas que se complementam, com recomendações alinhadas à realidade de cada cliente.</p>
+        </div>
+        <ul class="cards cards--3">
+          <li class="card">
+            <div class="card__icon"><svg aria-hidden="true"><use href="#i-infra"/></svg></div>
+            <h3>Infraestrutura de TI</h3>
+            <p>Planejamento, implantação, administração e otimização de ambientes de TI para manter sua operação conectada, estável e eficiente.</p>
             <ul>
-                <li><a href="#sobre">Sobre Nós</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#drone">Drone Vision</a></li>
+              <li>Redes corporativas e conectividade</li>
+              <li>Servidores, Active Directory e ambientes Windows/Linux</li>
+              <li>Virtualização e ambientes em nuvem</li>
+              <li>Monitoramento, disponibilidade e desempenho</li>
+              <li>Telefonia IP (VoIP) e sistemas de CFTV</li>
+              <li>Suporte técnico e melhoria da infraestrutura</li>
             </ul>
-        </nav>
-        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Fale Conosco</a>
-    </header>
-
-    <section class="hero">
-        <h1>O Alicerce Tecnológico da <span>Sua Empresa</span></h1>
-        <p>Consultoria e soluções avançadas em Infraestrutura, Cloud, Cibersegurança e Monitoramento Inteligente.</p>
-        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Agende uma Visita</a>
+            <a class="btn btn--outline" href="#contato" data-servico="Infraestrutura de TI">Conhecer solução<span class="sr-only"> de infraestrutura de TI</span></a>
+          </li>
+          <li class="card">
+            <div class="card__icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <h3>Cibersegurança</h3>
+            <p>Proteção de ambientes digitais com foco na redução de riscos, prevenção de ameaças e fortalecimento da segurança da informação.</p>
+            <ul>
+              <li>Avaliação de vulnerabilidades e riscos</li>
+              <li>Proteção de identidades e controle de acessos</li>
+              <li>Segurança de endpoints e ambientes corporativos</li>
+              <li>Monitoramento e análise de eventos</li>
+              <li>Backup, continuidade de negócios e recuperação</li>
+              <li>Orientação em boas práticas e governança de segurança</li>
+            </ul>
+            <a class="btn btn--outline" href="#contato" data-servico="Cibersegurança">Conhecer solução<span class="sr-only"> de cibersegurança</span></a>
+          </li>
+          <li class="card">
+            <div class="card__icon"><svg aria-hidden="true"><use href="#i-code"/></svg></div>
+            <h3>Desenvolvimento Web</h3>
+            <p>Criação de experiências digitais modernas, responsivas e funcionais para fortalecer a presença online e apoiar os objetivos do negócio.</p>
+            <ul>
+              <li>Sites institucionais e landing pages</li>
+              <li>Sistemas e aplicações web</li>
+              <li>Formulários e integrações</li>
+              <li>Automações de processos</li>
+              <li>Desempenho, SEO técnico e experiência mobile</li>
+            </ul>
+            <a class="btn btn--outline" href="#contato" data-servico="Desenvolvimento Web">Conhecer solução<span class="sr-only"> de desenvolvimento web</span></a>
+          </li>
+        </ul>
+      </div>
     </section>
 
-    <section id="sobre" class="sobre">
-        <h2>Evolução e Parceria</h2>
-        <p>A J+ Tecnologias evoluiu. Somos uma consultoria especializada em arquitetar o futuro tecnológico do seu negócio. Entregamos suporte de alto nível à infraestrutura, garantindo integridade, confiabilidade e alta disponibilidade para sua operação. Nossa missão vai além da técnica: buscamos firmar parcerias sólidas, conquistar a confiança do mercado e ser o braço direito da sua empresa nos desafios digitais.</p>
-    </section>
-
-    <section id="servicos" class="servicos">
-        <h2>Nossas Especialidades</h2>
-        <div class="grid-servicos">
-            <div class="card-servico">
-                <h3>Infraestrutura & Cloud</h3>
-                <p>Construímos e gerenciamos o alicerce tecnológico do seu negócio. De redes físicas a servidores em nuvem, garantimos alta disponibilidade e backups em tempo real.</p>
-            </div>
-            <div class="card-servico">
-                <h3>Cibersegurança</h3>
-                <p>Protegemos seus ativos digitais contra ameaças com firewalls robustos, auditorias de vulnerabilidade e criptografia. Segurança que não termina na porta do escritório.</p>
-            </div>
-            <div class="card-servico">
-                <h3>Engenharia DevOps</h3>
-                <p>Muito além do Web Design. Desenvolvemos aplicações de alta performance e implementamos automações para entregas rápidas e sistemas que não travam.</p>
-            </div>
-            <div class="card-servico">
-                <h3>Comunicação & CFTV</h3>
-                <p>Reduza custos com Telefonia IP (VOIP) e integre sua equipe. Projetamos sistemas de CFTV de alta definição para monitoramento avançado de riscos físicos.</p>
-            </div>
+    <section class="section section--navy on-dark" id="diferenciais" aria-labelledby="dif-titulo">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="eyebrow">Diferenciais</span>
+          <h2 id="dif-titulo">Tecnologia com visão prática de negócio.</h2>
         </div>
+        <ul class="pillars">
+          <li class="pillar"><h3>Visão integrada</h3><p>Infraestrutura, segurança e soluções digitais pensadas de forma complementar.</p></li>
+          <li class="pillar"><h3>Abordagem personalizada</h3><p>Recomendações alinhadas às necessidades, prioridades e possibilidades de cada cliente.</p></li>
+          <li class="pillar"><h3>Foco em confiabilidade</h3><p>Atenção à estabilidade, segurança, organização e continuidade das operações.</p></li>
+          <li class="pillar"><h3>Comunicação transparente</h3><p>Explicações claras, escopo definido e alinhamento de expectativas durante o projeto.</p></li>
+        </ul>
+      </div>
     </section>
 
-    <section id="drone" class="drone-vision">
-        <h2>DRONE VISION J+</h2>
-        <p>Inovação visual e monitoramento tático de alta precisão. Expandimos o conceito de segurança e análise com inspeções aéreas detalhadas para infraestruturas, mapeamento de áreas industriais e segurança perimetral imbatível.</p>
-        <a href="https://wa.me/5522974027361" class="btn-cta" target="_blank">Solicite uma Demonstração</a>
+    <section class="section section--gray" id="portfolio" aria-labelledby="port-titulo">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="eyebrow">Portfólio</span>
+          <h2 id="port-titulo">Projetos e iniciativas que demonstram nossa versatilidade.</h2>
+          <p class="lead">Conheça algumas das marcas e iniciativas relacionadas à nossa experiência em tecnologia, soluções digitais e produção de conteúdo aéreo.</p>
+        </div>
+        <ul class="cards cards--3">
+          <li class="card project">
+            <!--
+              LOGO DA DRONE VISION: o arquivo não foi recebido. Salve a logo original em assets/projetos/drone-vision-logo.png
+              e troque o <div class="project__media project__media--pending"> abaixo por:
+              <div class="project__media project__media--logo"><img src="assets/projetos/drone-vision-logo.png" width="LARGURA" height="ALTURA" loading="lazy" alt="Logo da Drone Vision"></div>
+            -->
+            <div class="project__media project__media--pending" role="img" aria-label="Drone Vision">DRONE VISION</div>
+            <div class="project__body">
+              <span class="project__tag">Imagens aéreas</span>
+              <h3>Drone Vision</h3>
+              <p>Projetos com drones e soluções de imagem aérea para o Rio de Janeiro e região, unindo tecnologia, planejamento e produção visual.</p>
+              <a class="btn btn--outline" href="https://dronevision.com.br/" target="_blank" rel="noopener noreferrer">Conhecer projeto<span class="sr-only"> Drone Vision (abre em nova aba)</span></a>
+            </div>
+          </li>
+          <li class="card project">
+            <div class="project__media"><img src="assets/projetos/maker-drone.jpg" width="1400" height="963" loading="lazy" alt="Logo da Maker Drone sobre uma bancada com drone, placas eletrônicas e monitores"></div>
+            <div class="project__body">
+              <span class="project__tag">Tecnologia de drones</span>
+              <h3>Maker Drone</h3>
+              <p>Iniciativa envolvendo tecnologia de drones, operação e recursos de imagem aérea.</p>
+              <a class="btn btn--outline" href="https://makerdrone.com.br/" target="_blank" rel="noopener noreferrer">Conhecer projeto<span class="sr-only"> Maker Drone (abre em nova aba)</span></a>
+            </div>
+          </li>
+          <li class="card project">
+            <div class="project__media project__media--logo"><img src="assets/projetos/droga-show-logo.png" width="600" height="572" loading="lazy" alt="Logo da Drogaria Show Popular"></div>
+            <div class="project__body">
+              <span class="project__tag">Varejo farmacêutico</span>
+              <h3>Droga Show</h3>
+              <p>Presença online da Drogaria Show Popular, no Centro de Nova Iguaçu (RJ), com consulta de produtos e atendimento pelo WhatsApp.</p>
+              <a class="btn btn--outline" href="https://drogariashowpopular.com.br/" target="_blank" rel="noopener noreferrer">Conhecer projeto<span class="sr-only"> Droga Show (abre em nova aba)</span></a>
+            </div>
+          </li>
+        </ul>
+        <p class="note">São marcas e iniciativas distintas, relacionadas à experiência da J+ TEC. Os serviços centrais da empresa continuam sendo infraestrutura de TI, cibersegurança e desenvolvimento web.</p>
+      </div>
     </section>
 
-    <footer>
-        <div class="contatos">
-            <div>
-                <strong>Telefones</strong>
-                (22) 97402-7361<br>
-                (22) 98849-2137
-                (21) 98854-5380<br>
-            </div>
-            <div>
-                <strong>E-mail</strong>
-                jorge@jmaistec.com.br
-            </div>
-            <div>
-                <strong>Web</strong>
-                www.jmaistec.com.br
-            </div>
+    <section class="section" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="wrap about">
+        <div>
+          <span class="eyebrow">Sobre a J+ TEC</span>
+          <h2 id="sobre-titulo">Tecnologia com experiência e visão estratégica.</h2>
+          <p>A J+ TEC Tecnologia reúne conhecimentos em infraestrutura de TI, segurança da informação e desenvolvimento de soluções digitais para ajudar empresas a utilizar a tecnologia de maneira mais segura, eficiente e estratégica.</p>
+          <p>Nossa abordagem combina conhecimento técnico, visão de negócio e soluções adequadas aos desafios de cada projeto, buscando simplificar operações, fortalecer ambientes tecnológicos e criar experiências digitais de qualidade.</p>
+          <ul class="areas"><li>Infraestrutura de TI</li><li>Cibersegurança</li><li>Desenvolvimento Web</li></ul>
         </div>
-        <div class="copy">
-            &copy; 2026 J+ Tecnologias. Todos os direitos reservados.
-        </div>
-    </footer>
+        <div class="about__panel"><img src="assets/logo-jmais.svg" width="226" height="40" alt="" loading="lazy"></div>
+      </div>
+    </section>
 
+    <section class="cta" aria-labelledby="cta-titulo">
+      <div class="wrap">
+        <h2 id="cta-titulo">Vamos encontrar a solução certa para sua empresa?</h2>
+        <p>Conte-nos seu desafio. Vamos entender sua necessidade e identificar como a tecnologia pode ajudar seu negócio a avançar.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#contato">Solicitar orçamento</a>
+          <a class="btn btn--ghost" href="https://wa.me/5522974027361" target="_blank" rel="noopener noreferrer"><svg width="22" height="22" aria-hidden="true"><use href="#i-wa"/></svg>Conversar pelo WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gray" id="contato" aria-labelledby="contato-titulo">
+      <div class="wrap contact">
+        <div>
+          <span class="eyebrow">Contato</span>
+          <h2 id="contato-titulo">Solicite seu orçamento</h2>
+          <p class="lead">Descreva sua necessidade. Respondemos pelo canal que você preferir.</p>
+          <ul class="contact__list">
+            <li><strong>WhatsApp</strong><a href="https://wa.me/5522974027361" target="_blank" rel="noopener noreferrer">(22) 97402-7361<span class="sr-only"> (abre em nova aba)</span></a></li>
+            <li><strong>Outros telefones</strong>(22) 98849-2137 · (21) 98854-5380</li>
+            <li><strong>E-mail</strong><a href="mailto:jorge@jmaistec.com.br">jorge@jmaistec.com.br</a></li>
+          </ul>
+        </div>
+        <form class="form" id="form-contato" novalidate>
+          <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="name" type="text" autocomplete="name" required maxlength="100"><p class="err" id="e-nome" role="alert"></p></div>
+          <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120"><p class="err" id="e-email" role="alert"></p></div>
+          <div class="field"><label for="f-empresa">Empresa <span class="opt">(opcional)</span></label><input id="f-empresa" name="company" type="text" autocomplete="organization" maxlength="100"></div>
+          <div class="field"><label for="f-servico">Serviço de interesse</label>
+            <select id="f-servico" name="service" required>
+              <option value="">Selecione…</option><option>Infraestrutura de TI</option><option>Cibersegurança</option><option>Desenvolvimento Web</option><option>Ainda não sei / outro assunto</option>
+            </select><p class="err" id="e-servico" role="alert"></p></div>
+          <div class="field"><label for="f-msg">Mensagem</label><textarea id="f-msg" name="message" required minlength="10" maxlength="2000"></textarea><p class="err" id="e-msg" role="alert"></p></div>
+          <div class="hp" aria-hidden="true"><label for="f-site">Não preencha este campo</label><input id="f-site" name="botcheck" type="text" tabindex="-1" autocomplete="off"></div>
+          <button class="btn btn--primary" type="submit" id="f-enviar">Enviar mensagem</button>
+          <div class="status" id="f-status" role="status" aria-live="polite" hidden></div>
+          <p class="form__legal">Usamos seus dados apenas para responder a este contato. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo-jmais.svg" width="226" height="40" alt="J+ TEC Tecnologia" loading="lazy">
+          <p>Infraestrutura, segurança e soluções digitais para empresas que precisam evoluir com confiança.</p>
+        </div>
+        <div>
+          <h2>Navegação</h2>
+          <ul><li><a href="#servicos">Serviços</a></li><li><a href="#portfolio">Portfólio</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#contato">Contato</a></li><li><a href="privacidade.html">Política de Privacidade</a></li></ul>
+        </div>
+        <div>
+          <h2>Contato</h2>
+          <ul>
+            <li><a href="https://wa.me/5522974027361" target="_blank" rel="noopener noreferrer">WhatsApp (22) 97402-7361<span class="sr-only"> (abre em nova aba)</span></a></li>
+            <li>(22) 98849-2137 · (21) 98854-5380</li>
+            <li><a href="mailto:jorge@jmaistec.com.br">jorge@jmaistec.com.br</a></li>
+          </ul>
+          <!-- Redes sociais: adicionar somente após confirmar os endereços oficiais. -->
+        </div>
+      </div>
+      <p class="footer-legal">&copy; <span id="ano">2026</span> J+ TEC Tecnologia. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
