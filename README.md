@@ -23,6 +23,7 @@ Confira o limite mensal do plano gratuito no site do provedor. Depois, teste um 
 Se a hospedagem atual for o GitHub Pages, basta enviar os arquivos ao repositório (com as pastas) e manter o arquivo `CNAME`.
 
 ## Pendências
-- Logo da **Drone Vision**: o arquivo não foi recebido. Siga o comentário em `index.html` (cartão "Drone Vision").
+- Logo da **Drone Vision**: aplicada a logo oficial enviada (`assets/projetos/drone-vision-logo.png`, fundo azul-escuro, recortada das margens).
+- Logo da **Dani JM** (`dani-jm-logo.svg`): vetorizada a partir da página dela; o lettering usa Poppins Bold Itálico no lugar da fonte original (Pacifico).
 - Logo da **Droga Show** foi ampliada de 160 px para 600 px (suavização, não recuperação de detalhe). Para qualidade perfeita, use o arquivo original (SVG/AI/PNG grande).
 - Redes sociais: só adicionar depois de confirmar os endereços.
