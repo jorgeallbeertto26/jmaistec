@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jmaistec.com.br/</loc></url>
-  <url><loc>https://jmaistec.com.br/privacidade.html</loc></url>
+  <url><loc>https://jmaistec.com.br/</loc><lastmod>2026-11-06</lastmod><priority>1.0</priority></url>
+  <url><loc>https://jmaistec.com.br/servicos/</loc><lastmod>2026-11-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://jmaistec.com.br/servicos/infraestrutura-de-ti/</loc><lastmod>2026-11-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://jmaistec.com.br/servicos/ciberseguranca/</loc><lastmod>2026-11-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://jmaistec.com.br/servicos/desenvolvimento-web/</loc><lastmod>2026-11-06</lastmod><priority>0.9</priority></url>
+  <url><loc>https://jmaistec.com.br/portfolio/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://jmaistec.com.br/sobre/</loc><lastmod>2026-11-06</lastmod><priority>0.7</priority></url>
+  <url><loc>https://jmaistec.com.br/contato/</loc><lastmod>2026-11-06</lastmod><priority>0.8</priority></url>
+  <url><loc>https://jmaistec.com.br/privacidade/</loc><lastmod>2026-11-06</lastmod><priority>0.3</priority></url>
 </urlset>

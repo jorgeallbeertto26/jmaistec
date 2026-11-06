@@ -4,6 +4,6 @@
 window.JMAIS_CONFIG = {
   formEndpoint: "",
   formExtraFields: {},   // ex.: { access_key: "SUA_CHAVE_PUBLICA" } (Web3Forms)
-  whatsapp: "5522974027361",
+  whatsapp: "5521966810304",
   email: "jorge@jmaistec.com.br"
 };

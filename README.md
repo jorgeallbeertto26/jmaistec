@@ -1,29 +1,45 @@
 # Site J+ TEC Tecnologia
 
-Página única em HTML, CSS e JavaScript puros. Sem cookies, sem rastreadores e sem fontes externas.
+Site multipágina em HTML, CSS e JavaScript puros, hospedado no GitHub Pages (domínio em `CNAME`). Sem cookies, sem rastreadores e sem fontes externas.
 
-## Arquivos
-- `index.html`, `privacidade.html`, `404.html`: páginas.
-- `css/style.css`: visual (cores em `:root`). `js/main.js`: menu e formulário. `js/config.js`: **configuração do formulário**.
-- `assets/logo-jmais.svg` (para fundo escuro) e `assets/logo-jmais-claro.svg` (para fundo claro): logo J+ TEC refeita em vetor.
-- `assets/projetos/`: logos do portfólio. `robots.txt`, `sitemap.xml`, `_headers`.
+## Páginas
+| Endereço | Conteúdo |
+|---|---|
+| `/` | Início (rede animada, título digitando, serviços, etapas, diferenciais, portfólio) |
+| `/servicos/` | Visão geral dos serviços |
+| `/servicos/infraestrutura-de-ti/` · `/servicos/ciberseguranca/` · `/servicos/desenvolvimento-web/` | Uma página por serviço, com perguntas frequentes |
+| `/portfolio/` · `/sobre/` · `/contato/` · `/privacidade/` | Demais páginas |
+| `privacidade.html` | Redireciona o endereço antigo para `/privacidade/` |
+
+## Como editar
+Os textos ficam em `_fonte/gerar_site.py`. Depois de editar, rode na raiz:
+```
+python3 _fonte/gerar_site.py
+```
+Ele regera todas as páginas e o `sitemap.xml`. A pasta `_fonte` não é publicada pelo GitHub Pages.
+
+## Animações
+- Rede de nós e conexões nas faixas escuras (`canvas.net`), pausada fora da tela e com a aba oculta.
+- Título digitando na página inicial (`data-typed`), com texto completo para leitores de tela e buscadores.
+- Revelar ao rolar (`data-reveal`, `left`, `right`, `zoom`; atrasos `d1` a `d5`).
+- Cards com elevação, borda animada e holofote que segue o mouse.
+Todas são desligadas quando o sistema do visitante pede para reduzir movimento.
+
+## SEO
+Título e descrição únicos por página, `canonical`, Open Graph, dados estruturados (Organization, WebSite, Service, FAQPage, BreadcrumbList), `sitemap.xml` e `robots.txt`.
+Depois de publicar: cadastre o domínio no Google Search Console e envie `https://jmaistec.com.br/sitemap.xml`.
 
 ## Ativar o formulário (obrigatório antes de divulgar)
-O site é estático e não tem servidor. Enquanto `formEndpoint` estiver vazio em `js/config.js`, o formulário **não finge envio**: mostra um aviso e oferece WhatsApp e e-mail.
-Para ativar, use um serviço de formulários com plano gratuito, por exemplo:
-1. **Web3Forms**: crie uma chave de acesso com o e-mail que vai receber as mensagens e preencha
-   `formEndpoint: "https://api.web3forms.com/submit"` e `formExtraFields: { access_key: "SUA_CHAVE" }`.
-2. **Formspree**: crie um formulário e use a URL dele em `formEndpoint`.
-Confira o limite mensal do plano gratuito no site do provedor. Depois, teste um envio real e informe o nome do provedor no item 5 de `privacidade.html`.
+Enquanto `formEndpoint` estiver vazio em `js/config.js`, o formulário não finge envio: mostra um aviso e oferece WhatsApp e e-mail.
+- **Web3Forms**: `formEndpoint: "https://api.web3forms.com/submit"` e `formExtraFields: { access_key: "SUA_CHAVE" }`.
+- **Formspree**: use a URL do formulário em `formEndpoint`.
+Depois, teste um envio real e informe o provedor no item 5 da política de privacidade (`_fonte/privacidade-corpo.html`).
 
-## Publicar sem perder o domínio
-1. **Faça backup** do site atual (baixe todos os arquivos da hospedagem de `jmaistec.com.br`).
-2. Envie estes arquivos para a mesma hospedagem, mantendo `index.html` na raiz. Não altere DNS nem domínio.
-3. Para voltar à versão anterior, restaure o backup.
-Se a hospedagem atual for o GitHub Pages, basta enviar os arquivos ao repositório (com as pastas) e manter o arquivo `CNAME`.
+## Segurança
+A política de segurança de conteúdo (CSP) está em uma `<meta>` em cada página, porque o GitHub Pages não lê o arquivo `_headers`. Não use atributos `style="..."` nem scripts embutidos: a CSP bloqueia.
 
 ## Pendências
-- Logo da **Drone Vision**: aplicada a logo oficial enviada (`assets/projetos/drone-vision-logo.png`, fundo azul-escuro, recortada das margens).
-- Logo da **Dani JM** (`dani-jm-logo.svg`): vetorizada a partir da página dela; o lettering usa Poppins Bold Itálico no lugar da fonte original (Pacifico).
-- Logo da **Droga Show** foi ampliada de 160 px para 600 px (suavização, não recuperação de detalhe). Para qualidade perfeita, use o arquivo original (SVG/AI/PNG grande).
-- Redes sociais: só adicionar depois de confirmar os endereços.
+- Revisar as perguntas frequentes das páginas de serviço.
+- Área de atendimento (cidades/região) não foi informada; quando confirmar, dá para reforçar o SEO local.
+- Logo da **Droga Show** foi ampliada de 160 px para 600 px; para qualidade perfeita, use o arquivo original.
+- A pasta `img/` (logos originais em PNG e uma imagem gerada por IA) não é usada pelo site.
