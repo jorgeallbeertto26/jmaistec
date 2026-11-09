@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /ig/
 
 Sitemap: https://jmaistec.com.br/sitemap.xml
